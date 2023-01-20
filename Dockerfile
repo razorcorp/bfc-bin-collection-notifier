@@ -8,6 +8,7 @@ RUN apt-get install -y ca-certificates
 ENV GO111MODULE=on
 ENV GOPROXY=direct
 ENV GOSUMDB=off
+ENV CGO_ENABLED=0
 
 WORKDIR /root
 
