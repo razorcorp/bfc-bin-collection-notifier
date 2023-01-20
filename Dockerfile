@@ -41,7 +41,7 @@ COPY ./slack-sdk ./slack-sdk
 
 RUN GOOS=${GOOS} GOARCH=${GOARCH} go build -ldflags "-X main.VERSION=${VERSION}" -o /bfc-bin-collection-notifier .
 
-FROM alpine:latest AS final
+FROM debian:stable-slim AS final
 
 RUN apk update
 RUN apk upgrade
