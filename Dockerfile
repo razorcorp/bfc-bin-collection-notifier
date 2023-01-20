@@ -2,8 +2,8 @@
 
 FROM golang:1.19 AS base
 
-RUN apk update
-RUN apk add ca-certificates
+RUN apt-get update
+RUN apt-get install -y ca-certificates
 
 ENV GO111MODULE=on
 ENV GOPROXY=direct
@@ -41,6 +41,9 @@ COPY ./slack-sdk ./slack-sdk
 RUN GOOS=${GOOS} GOARCH=${GOARCH} go build -ldflags "-X main.VERSION=${VERSION}" -o /bfc-bin-collection-notifier .
 
 FROM alpine:latest AS final
+
+RUN apk update
+RUN apk upgrade
 
 COPY --from=builder /bfc-bin-collection-notifier /bfc-bin-collection-notifier
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
