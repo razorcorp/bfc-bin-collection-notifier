@@ -1,4 +1,4 @@
-BINARY = athena-api
+BINARY = bfc-bin-collection-notifier
 GOARCH = amd64
 
 VERSION?=latest
