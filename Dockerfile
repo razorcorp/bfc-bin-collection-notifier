@@ -45,6 +45,7 @@ FROM alpine:latest AS final
 
 RUN apk update
 RUN apk upgrade
+RUN apk add --no-cache libc6-compat
 
 COPY --from=builder /bfc-bin-collection-notifier /bfc-bin-collection-notifier
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
