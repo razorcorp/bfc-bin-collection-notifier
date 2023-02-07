@@ -60,7 +60,7 @@ func (b *Blocks) buildMessage(data bfc_api.DataModel) {
 
 	for _, collection := range data.Collections {
 		dateDiff := collection.Date.Diff()
-		if dateDiff > 0 && dateDiff <= 7 {
+		if dateDiff >= 0 && dateDiff <= 6 {
 			b.Blocks = append(b.Blocks,
 				Block{
 					TypeBlock: "section",
