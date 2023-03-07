@@ -55,10 +55,3 @@ jobs:
               VERSION="$IMG_LABEL"
               GOOS=linux
               GOARCH=amd64
-              
-#         run: docker build . \
-#           --file Dockerfile \
-#           --tag ghcr.io/razorcorp/bfc-bin-collection-notifier:$IMG_LABEL \
-#           --build-arg VERSION="$IMG_LABEL" \
-#           --build-arg GOOS=linux \
-#           --build-arg GOARCH=amd64
